@@ -39,7 +39,7 @@ public class HackerTyperAction extends TypedActionHandlerBase {
     public void execute(Editor editor, char c, DataContext dataContext) {
         logger.info("editor " + editor + " char " + c + " data context " + dataContext);
 
-        int next = sourcePointer.incrementAndGet() % sourceCode.length();
+        int next = sourcePointer.getAndIncrement() % sourceCode.length();
         c = sourceCode.charAt(next);
 
         if (myOriginalHandler != null) {
